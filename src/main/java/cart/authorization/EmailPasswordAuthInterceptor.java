@@ -1,6 +1,7 @@
 package cart.authorization;
 
 import cart.service.UserService;
+import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
@@ -17,7 +18,7 @@ public class EmailPasswordAuthInterceptor extends HandlerInterceptorAdapter {
 
     @Override
     public boolean preHandle(final HttpServletRequest request, final HttpServletResponse response, final Object handler) throws Exception {
-        final String header = request.getHeader("Authorization");
+        final String header = request.getHeader(HttpHeaders.AUTHORIZATION);
         return userService.authUser(EmailPasswordExtractor.extract(header));
     }
 }
