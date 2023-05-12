@@ -41,7 +41,7 @@ public class JdbcUserTableDao {
                         );
                     }, userEmail);
         } catch (EmptyResultDataAccessException e) {
-            throw new NoSuchDataException("해당 유저가 없습니다");
+            throw new NoSuchDataException("이메일 데이터가 없습니다");
         }
 
     }

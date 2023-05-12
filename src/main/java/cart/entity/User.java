@@ -28,7 +28,7 @@ public class User {
         return password.value();
     }
 
-    public boolean authorization(final String email, final String password) {
+    public boolean authValidate(final String email, final String password) {
         if (!this.email.equals(email)) {
             throw new NoAuthorizationUserException("이메일이 틀렸습니다");
         }

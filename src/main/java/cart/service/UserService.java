@@ -28,7 +28,7 @@ public class UserService {
     }
 
     public boolean authUser(final UserDto userDto) {
-        return jdbcUserTableDao.findByEmail(userDto.getEmail()).authorization(userDto.getEmail(), userDto.getPassword());
+        return jdbcUserTableDao.findByEmail(userDto.getEmail()).authValidate(userDto.getEmail(), userDto.getPassword());
     }
 
     public Long findLoginUserId(final String email) {
